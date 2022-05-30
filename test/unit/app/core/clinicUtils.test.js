@@ -53,6 +53,13 @@ describe('clinicUtils', function() {
     ]);
   });
 
+  it('should return all preferredBgUnits options', () => {
+    expect(clinicUtils.preferredBgUnits).to.eql([
+      { value: 'mg/dL', label: 'mg/dL' },
+      { value: 'mmol/L', label: 'mmol/L' },
+    ]);
+  });
+
   describe('clinicValuesFromClinic', () => {
     it('should return default values for any missing clinic fields', () => {
       const emptyClinic = {};
@@ -73,6 +80,7 @@ describe('clinicUtils', function() {
         clinicSize: '',
         website: '',
         attestationSubmitted: false,
+        preferredBgUnits: '',
       });
     });
 
@@ -94,6 +102,7 @@ describe('clinicUtils', function() {
         clinicSize: '0-249',
         website: 'http://mysite.com',
         attestationSubmitted: true,
+        preferredBgUnits: 'mmol/L',
       };
 
       expect(clinicUtils.clinicValuesFromClinic(clinic)).to.eql(clinic);
@@ -116,6 +125,7 @@ describe('clinicUtils', function() {
         'clinicSize',
         'website',
         'attestationSubmitted',
+        'preferredBgUnits',
       ]);
 
       expect(clinicUtils.clinicSchema.fields.phoneNumbers.innerType._nodes).to.be.an('array').and.have.members([

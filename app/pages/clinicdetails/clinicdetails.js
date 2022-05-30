@@ -164,7 +164,7 @@ export const ClinicDetails = (props) => {
       'updatingUser.inProgress'
     );
 
-    if (submitting === 'partial' && !inProgress && completed && prevInProgress) {
+    if (submitting === 'partial' && !inProgress && completed !== null && prevInProgress) {
       setSubmitting(false);
 
       if (notification) {
@@ -195,7 +195,7 @@ export const ClinicDetails = (props) => {
       'updatingClinic.inProgress'
     );
 
-    if (!inProgress && completed && prevInProgress) {
+    if (!inProgress && completed !== null && prevInProgress) {
       if (notification) {
         setToast({
           message: notification.message,
@@ -234,7 +234,7 @@ export const ClinicDetails = (props) => {
       'triggeringInitialClinicMigration.inProgress'
     );
 
-    if (!inProgress && completed && prevInProgress) {
+    if (!inProgress && completed !== null && prevInProgress) {
       if (notification) {
         setToast({
           message: notification.message,
@@ -330,7 +330,7 @@ export const ClinicDetails = (props) => {
       variant="containers.mediumBordered"
       p={4}
     >
-      {working.fetchingClinicianInvites.completed ? (
+      {working.fetchingClinicianInvites.completed !== null ? (
         <>
           <Headline mb={2}>{t('Update your account')}</Headline>
 
@@ -504,7 +504,7 @@ export const ClinicDetails = (props) => {
           </Formik>
           <Dialog
             id="migrateClinic"
-            aria-labelledBy="dialog-title"
+            aria-labelledby="dialog-title"
             open={showMigrationDialog}
             onClose={logoutPending ? noop : closeMigrationConfirmationModal}
           >
@@ -536,7 +536,7 @@ export const ClinicDetails = (props) => {
 
           <Dialog
             id="declineInvite"
-            aria-labelledBy="dialog-title"
+            aria-labelledby="dialog-title"
             open={showDeclineDialog}
             onClose={() => setShowDeclineDialog(false)}
           >
