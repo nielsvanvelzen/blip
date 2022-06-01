@@ -18447,10 +18447,10 @@ tideline@1.26.0:
     react-sizeme "2.6.12"
     sundial "1.6.0"
 
-tidepool-platform-client@0.49.0-web-1338-patient-list-cgm-stats.2:
-  version "0.49.0-web-1338-patient-list-cgm-stats.2"
-  resolved "https://registry.yarnpkg.com/tidepool-platform-client/-/tidepool-platform-client-0.49.0-web-1338-patient-list-cgm-stats.2.tgz#67cc9d0de5fd0a255ee78711a4e43e01f072675a"
-  integrity sha512-rJIxYmaLWrsceM0LkyALSXLdC97uopSl7AN8oeOZS6H0YNDj8pQ2K7bRABXut00PYvnJQK5b+tsinik5NtrD6A==
+tidepool-platform-client@0.50.0-web-1496-clinic-form-attestation.1:
+  version "0.50.0-web-1496-clinic-form-attestation.1"
+  resolved "https://registry.yarnpkg.com/tidepool-platform-client/-/tidepool-platform-client-0.50.0-web-1496-clinic-form-attestation.1.tgz#775148718ba2d9a6f0b6e994ad8fea457572595e"
+  integrity sha512-8HSlZR4Y7tExULtsEFVFHLX/pS0dCUeMnSlUSJwuhr+nmLn9B8VbdAcW2LY2A3arBHGxfabgmQvNPHhKSjpMtw==
   dependencies:
     async "0.9.0"
     lodash "3.3.1"
