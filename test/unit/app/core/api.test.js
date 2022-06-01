@@ -874,8 +874,9 @@ describe('api', () => {
       it('should call tidepool.triggerInitialClinicMigration with the appropriate args', () => {
         const cb = sinon.stub();
         const clinicId = 'clinicId123';
-        api.clinics.triggerInitialClinicMigration(clinicId, cb);
-        sinon.assert.calledWith(tidepool.triggerInitialClinicMigration, clinicId, cb);
+        const attestationSubmitted = true;
+        api.clinics.triggerInitialClinicMigration(clinicId, attestationSubmitted, cb);
+        sinon.assert.calledWith(tidepool.triggerInitialClinicMigration, clinicId, attestationSubmitted, cb);
       });
     });
     describe('clinics.sendPatientUploadReminder', () => {

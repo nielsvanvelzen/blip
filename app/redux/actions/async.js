@@ -2548,11 +2548,11 @@ export function getClinicsForClinician(api, clinicianId, options = {}, cb = _.no
  * @param {Object} api - an instance of the API wrapper
  * @param {String} clinicId - Id of the clinic
  */
- export function triggerInitialClinicMigration(api, clinicId) {
+ export function triggerInitialClinicMigration(api, clinicId, attestationSubmitted) {
   return (dispatch) => {
     dispatch(sync.triggerInitialClinicMigrationRequest());
 
-    api.clinics.triggerInitialClinicMigration(clinicId, (err) => {
+    api.clinics.triggerInitialClinicMigration(clinicId, attestationSubmitted, (err) => {
       if (err) {
         dispatch(sync.triggerInitialClinicMigrationFailure(
           createActionError(ErrorMessages.ERR_TRIGGERING_INITIAL_CLINIC_MIGRATION, err), err

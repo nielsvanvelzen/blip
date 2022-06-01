@@ -7283,10 +7283,11 @@ describe('Actions', () => {
       it('should trigger TRIGGER_INITIAL_CLINIC_MIGRATION_SUCCESS and it should call clinics.triggerInitialClinicMigration once for a successful request', () => {
         let clinicId = 'clinicId1';
         let userId = 'userId1';
+        const attestationSubmitted = true;
 
         let api = {
           clinics: {
-            triggerInitialClinicMigration: sinon.stub().callsArgWith(1, null, { userId }),
+            triggerInitialClinicMigration: sinon.stub().callsArgWith(2, null, { userId }),
           },
         };
 
@@ -7299,7 +7300,7 @@ describe('Actions', () => {
         });
 
         let store = mockStore({ blip: initialState });
-        store.dispatch(async.triggerInitialClinicMigration(api, clinicId));
+        store.dispatch(async.triggerInitialClinicMigration(api, clinicId, attestationSubmitted));
 
         const actions = store.getActions();
         expect(actions).to.eql(expectedActions);
@@ -7308,9 +7309,10 @@ describe('Actions', () => {
 
       it('should trigger TRIGGER_INITIAL_CLINIC_MIGRATION_FAILURE and it should call error once for a failed request', () => {
         let clinicId = 'clinicId1';
+        const attestationSubmitted = true;
         let api = {
           clinics: {
-            triggerInitialClinicMigration: sinon.stub().callsArgWith(1, {status: 500, body: 'Error!'}, null),
+            triggerInitialClinicMigration: sinon.stub().callsArgWith(2, {status: 500, body: 'Error!'}, null),
           },
         };
 
@@ -7325,7 +7327,7 @@ describe('Actions', () => {
           expect(isTSA(action)).to.be.true;
         });
         let store = mockStore({ blip: initialState });
-        store.dispatch(async.triggerInitialClinicMigration(api, clinicId));
+        store.dispatch(async.triggerInitialClinicMigration(api, clinicId, attestationSubmitted));
 
         const actions = store.getActions();
         expect(actions[1].error).to.deep.include({ message: ErrorMessages.ERR_TRIGGERING_INITIAL_CLINIC_MIGRATION });

@@ -305,7 +305,7 @@ export const ClinicDetails = (props) => {
   function handleConfirmClinicMigration() {
     setSubmitting(true);
     trackMetric('Clinic - Migration confirmed', { clinicId: selectedClinicId });
-    dispatch(actions.async.triggerInitialClinicMigration(api, selectedClinicId));
+    dispatch(actions.async.triggerInitialClinicMigration(api, selectedClinicId, clinicValues().attestationSubmitted));
   }
 
   function handleDeclineInvite(workspace) {

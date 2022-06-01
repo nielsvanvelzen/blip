@@ -995,8 +995,8 @@ api.clinics.getClinicByShareCode = function(shareCode, cb) {
   return tidepool.getClinicByShareCode(shareCode, cb);
 };
 
-api.clinics.triggerInitialClinicMigration = function(clinicId, cb) {
-  return tidepool.triggerInitialClinicMigration(clinicId, cb);
+api.clinics.triggerInitialClinicMigration = function(clinicId, attestationSubmitted, cb) {
+  return tidepool.triggerInitialClinicMigration(clinicId, attestationSubmitted, cb);
 };
 
 api.clinics.sendPatientUploadReminder = function(clinicId, patientId, cb) {
